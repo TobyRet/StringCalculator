@@ -44,5 +44,10 @@ public class StringCalculatorTests {
     public final void ReturnSumOfValuesForAnyNumberOfArguments() {
         Assert.assertEquals(3+4+5+6+7+8, StringCalculator.add("3,4,5,6,7,8"));
     }
+
+    @Test
+    public final void DisregardAnyLineBreaksWhenAddingValues() {
+        Assert.assertEquals(3+6+15, StringCalculator.add("3,6n15"));
+    }
 }
 
