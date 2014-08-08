@@ -8,11 +8,13 @@ import org.junit.Test;
 public class StringCalculatorTests {
 
     @Test(expected = RuntimeException.class)
+    @Ignore
     public final void ThrowExceptionWhenMoreThan2NumbersAreUsed() {
         StringCalculator.add("1,2,3");
     }
 
     @Test
+    @Ignore
     public final void NotThrowExceptionWhen2NumbersAreUsed() {
         StringCalculator.add("1,2");
         Assert.assertTrue(true);
@@ -36,6 +38,11 @@ public class StringCalculatorTests {
     @Test
     public final void ReturnSumOfTwoValuesIfTwoValuesUsed() {
         Assert.assertEquals(3 + 6, StringCalculator.add("3,6"));
+    }
+
+    @Test
+    public final void ReturnSumOfValuesForAnyNumberOfArguments() {
+        Assert.assertEquals(3+4+5+6+7+8, StringCalculator.add("3,4,5,6,7,8"));
     }
 }
 
