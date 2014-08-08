@@ -1,6 +1,6 @@
+import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by tobyretallick on 07/08/2014.
@@ -15,7 +15,7 @@ public class StringCalculatorTests {
     @Test
     public final void NotThrowExceptionWhen2NumbersAreUsed() {
         StringCalculator.add("1,2");
-        assertTrue(true);
+        Assert.assertTrue(true);
     }
 
     @Test(expected = RuntimeException.class)
@@ -25,7 +25,17 @@ public class StringCalculatorTests {
 
     @Test
     public final void ReturnZeroWhenEmptyStringUsed() {
-        assertEquals(0, StringCalculator.add(""));
+        Assert.assertEquals(0, StringCalculator.add(""));
+    }
+
+    @Test
+    public final void ReturnParametreValueIfSingleParametreUsed() {
+        Assert.assertEquals(3, StringCalculator.add("3"));
+    }
+
+    @Test
+    public final void ReturnSumOfTwoValuesIfTwoValuesUsed() {
+        Assert.assertEquals(3 + 6, StringCalculator.add("3,6"));
     }
 }
 
